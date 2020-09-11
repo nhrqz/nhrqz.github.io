@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stopwatch</title>
+  <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div id="timer" class="timer">
+      <div id="m">00</div>
+      <div id="s">00</div>
+      <div id="ts">00</div>
+    </div>
+  </div>
+  <script>
+    const timer = document.getElementById('timer');
+    const m = document.getElementById('m');
+    const s = document.getElementById('s');
+    const ts = document.getElementById('ts');
+    let isRunning = false;
+    let isZeroed = true;
+    let intId;
+    timer.addEventListener('click', () => {
+      if (!isRunning && isZeroed) {
+        isRunning = true;
+        isZeroed = false;
+        var start = Date.now();
+        intId = setInterval(function() {
+          var delta = Date.now() - start; // milliseconds elapsed since start
+          output(Math.floor(delta / 10)); // in tenths of a second
+        }, 47); // update about every fiftieth of a second
+      } else if (isRunning && !isZeroed) {
+        isRunning = false;
+        clearInterval(intId);
+        return;
+      } else if (!isRunning && !isZeroed) {
+        isZeroed = true;
+        ts.innerText = '00';
+        s.innerText = '00';
+        m.innerText = '00';
+        return;
+      }
+    })
+
+    function output(t) {
+      ts.innerText = pad(t % 100,2);
+      s.innerText = pad(Math.floor((t % 6000) / 100), 2);
+      m.innerText = pad(Math.floor(t / 6000), 2);
+    }
+
+    function pad(n, width, z) {
+      z = z || '0';
+      n = n + '';
+      return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+    }
+  </script>
+</body>
+</html>
