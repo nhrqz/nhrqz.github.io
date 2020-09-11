@@ -23,6 +23,7 @@ body {
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 400px 1fr;
+  user-select: none;
 }
 
 .timer:hover {
