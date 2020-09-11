@@ -22,7 +22,7 @@ body {
   align-self: center;
   text-align: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 400px 1fr;
 }
 
 .timer:hover {
@@ -33,3 +33,10 @@ body {
   display: inline;
 }
 
+#m {
+  text-align: right;
+}
+
+#ts {
+  text-align: left;
+}
