@@ -2,6 +2,7 @@ body {
   background-color: #000000;
   width: 100vw;
   height: 100vh;
+  margin: 0px;
 }
 
 .container {
@@ -21,9 +22,10 @@ body {
   font-size: 200px;
   align-self: center;
   text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 400px 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 400px 1fr; */
   user-select: none;
+  line-height: 180px;
 }
 
 .timer:hover {
@@ -31,13 +33,21 @@ body {
 }
 
 #m, #s, #ts {
-  display: inline;
+  display: block;
 }
 
+#s {
+  opacity: 75%;
+}
+
+#ts {
+  opacity: 50%;
+}
+/* 
 #m {
   text-align: right;
 }
 
 #ts {
   text-align: left;
-}
+} */
